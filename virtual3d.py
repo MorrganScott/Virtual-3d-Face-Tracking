@@ -16,7 +16,7 @@ face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 
 
-cap = cv.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 if not cap.isOpened():
     print("Cannot open camera")
     exit()
@@ -29,7 +29,7 @@ while True:
         print("Can't receive frame (stream end?). Exiting ...")
         break
     # Our operations on the frame come here
-    gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     # Detect faces
     #detectMultScale returns an 2d ndarray
     faces = face_cascade.detectMultiScale(gray)
@@ -41,13 +41,13 @@ while True:
       cv2.rectangle(frame, (x-5, y-5), (x+w+5, y+h+5), (0, 0, 0), 5)
 
     # Display the resulting frame
-    cv.imshow('frame', gray)
+    cv2.imshow('frame', frame)
     if cv.waitKey(1) == ord('q'):
         break
  
 # When everything done, release the capture
 cap.release()
-cv.destroyAllWindows()
+cv2.destroyAllWindows()
 
 
 
