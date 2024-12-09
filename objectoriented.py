@@ -27,7 +27,7 @@ class FaceFinder:
 
 class Stage():
   #initialized with display size. draws background grid based on position
-  def __init___(self):
+  def __init__(self):
     self.disp_h = 0
     self.disp_w = 0
     self.cam_h = 720
